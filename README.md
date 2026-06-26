@@ -54,14 +54,20 @@ git clone https://github.com/CarlosShao/workbuddy-computer-use.git \
 本 Skill 使用**隔离 venv**，不影响系统 Python：
 
 ```bash
-# 创建 venv
-C:/Users/swq/.workbuddy/binaries/python/versions/3.13.12/python.exe -m venv \
-  C:/Users/swq/.workbuddy/binaries/python/envs/computer-use
+# 进入 skill 目录
+cd ~/.workbuddy/skills/workbuddy-computer-use/
 
-# 安装依赖
-C:/Users/swq/.workbuddy/binaries/python/envs/computer-use/Scripts/pip.exe install \
-  pyautogui pywinauto opencv-python numpy mss pillow pytesseract
+# 创建隔离虚拟环境
+python -m venv .venv
+
+# 安装依赖（Windows）
+.venv/Scripts/pip.exe install pyautogui pywinauto opencv-python numpy mss pillow pytesseract
+
+# 安装依赖（macOS / Linux）
+.venv/bin/pip install pyautogui pywinauto opencv-python numpy mss pillow pytesseract
 ```
+
+> **注意**：Python 版本要求 ≥ 3.10。如果系统没有 `python` 命令，请用 `python3` 替代。
 
 ### 3.（可选）安装 Tesseract OCR
 
@@ -232,11 +238,18 @@ A Windows desktop automation skill for WorkBuddy that mirrors the "Computer Use"
 git clone https://github.com/CarlosShao/workbuddy-computer-use.git \
   ~/.workbuddy/skills/workbuddy-computer-use/
 
-# Install Python deps into isolated venv
-python -m venv ~/.workbuddy/binaries/python/envs/computer-use
-~/.workbuddy/binaries/python/envs/computer-use/Scripts/pip.exe install \
-  pyautogui pywinauto opencv-python numpy mss pillow pytesseract
+# Enter skill directory and create isolated venv
+cd ~/.workbuddy/skills/workbuddy-computer-use/
+python -m venv .venv
+
+# Install Python deps (Windows)
+.venv/Scripts/pip.exe install pyautogui pywinauto opencv-python numpy mss pillow pytesseract
+
+# Install Python deps (macOS / Linux)
+.venv/bin/pip install pyautogui pywinauto opencv-python numpy mss pillow pytesseract
 ```
+
+> **Note**: Requires Python >= 3.10. Use `python3` if `python` is not available.
 
 ### Quick Start
 
